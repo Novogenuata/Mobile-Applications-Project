@@ -16,3 +16,7 @@ Sigourney Wamback
 ### Enhanced User Experience (Detailed Analytics)
 - As a user, I want to select a specific month to view my spending, so I can analyze my monthly expenses.
 - As a user, I want to see a visual graph that summarizes my expenses for the selected month, allowing me to understand my spending trends over time.
+# Activity Diagram 
+# Mock Ups
+# Database Design
+# UAT

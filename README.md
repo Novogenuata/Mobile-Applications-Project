@@ -9,7 +9,7 @@ Sigourney Wamback
 ### UI and Navigation 
 - As a user, I want to see a main dashboard displaying my total expenses and income, so I can quickly understand my financial status.
 - As a user, I want a floating action button to appear on every screen, allowing me to send my financial summary via email when needed.
-- As a user, I want an intuitive navigation bar to easily switch between the main dashboard, add entry screen, and detailed analytics page, so I can access all features seamlessly.
+
 ### Financial Calculations 
 - As a user, I want the app to calculate and display my total expenses and income so I can have a clear picture of my overall spending and earnings.
 - As a user, I want to add purchases and view an itemized list with total costs per category to help me manage my spending in different areas.

@@ -17,6 +17,8 @@ Sigourney Wamback
 - As a user, I want to select a specific month to view my spending, so I can analyze my monthly expenses.
 - As a user, I want to see a visual graph that summarizes my expenses for the selected month, allowing me to understand my spending trends over time.
 # Activity Diagram 
+![image](https://github.com/user-attachments/assets/01805376-7f21-4f70-b728-00fad0a6974c)
+
 # Mock Ups
 # Database Design
 # UAT

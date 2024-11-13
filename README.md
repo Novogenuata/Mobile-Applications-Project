@@ -24,4 +24,6 @@ Sigourney Wamback
 
 
 # Database Design
+![image](https://github.com/user-attachments/assets/14169472-9719-4860-83ab-76227fad905c)
+
 # UAT

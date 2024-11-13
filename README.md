@@ -20,5 +20,7 @@ Sigourney Wamback
 ![image](https://github.com/user-attachments/assets/01805376-7f21-4f70-b728-00fad0a6974c)
 
 # Mock Ups
+![image](https://github.com/user-attachments/assets/65d763a5-968f-4c97-80f6-ce5b8d393bbc)
+
 # Database Design
 # UAT

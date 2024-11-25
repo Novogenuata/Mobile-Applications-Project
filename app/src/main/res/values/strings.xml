@@ -2,5 +2,5 @@
     <string name="app_name">ExpenseTracker</string>
     <string name="title_home">Overview</string>
     <string name="title_dashboard">Analytics</string>
-    <string name="title_notifications">Add entry</string>
+    <string name="title_notifications">Add Entry</string>
 </resources>

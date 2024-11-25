@@ -39,6 +39,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -48,9 +49,22 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    // Jetpack Compose dependencies
+    implementation("androidx.compose.ui:ui:1.4.1")
+    implementation("androidx.compose.material:material:1.4.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.4.1")
+    implementation("androidx.activity:activity-compose:1.7.0")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    
+
+   androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.1")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    debugImplementation("androidx.compose.ui:ui-tooling:1.4.1")
 
 }

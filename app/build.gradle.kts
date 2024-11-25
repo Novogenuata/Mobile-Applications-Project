@@ -55,11 +55,13 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:1.4.1")
     implementation("androidx.activity:activity-compose:1.7.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    
+    implementation("androidx.room:room-runtime:2.4.2")
+    implementation("androidx.room:room-ktx:2.4.2")
 
    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.1")
+
 
 
     testImplementation(libs.junit)

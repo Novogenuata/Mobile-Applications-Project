@@ -79,7 +79,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         val entries = ArrayList<PieEntry>()
         entries.add(PieEntry(40f, "Income"))
         entries.add(PieEntry(35f, "Expense"))
-        entries.add(PieEntry(25f, "Balance"))
+        entries.add(PieEntry(25f, "Total"))
 
 
         val dataSet = PieDataSet(entries, "Mobile OS")

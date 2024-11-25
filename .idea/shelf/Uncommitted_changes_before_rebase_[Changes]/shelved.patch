@@ -1,0 +1,20 @@
+Index: app/src/main/java/com/example/expensetracker/ui/dashboard/DashboardViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.expensetracker.ui.dashboard\r\n\r\nimport androidx.lifecycle.LiveData\r\nimport androidx.lifecycle.MutableLiveData\r\nimport androidx.lifecycle.ViewModel\r\n\r\nclass DashboardViewModel : ViewModel() {\r\n\r\n    private val _text = MutableLiveData<String>().apply {\r\n        value = \"This is dashboard Fragment\"\r\n    }\r\n    val text: LiveData<String> = _text\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/expensetracker/ui/dashboard/DashboardViewModel.kt b/app/src/main/java/com/example/expensetracker/ui/dashboard/DashboardViewModel.kt
+--- a/app/src/main/java/com/example/expensetracker/ui/dashboard/DashboardViewModel.kt	(revision 38480bc68a67b9257ccdaeb084f06313ecfac2e7)
++++ b/app/src/main/java/com/example/expensetracker/ui/dashboard/DashboardViewModel.kt	(date 1732495799082)
+@@ -7,7 +7,7 @@
+ class DashboardViewModel : ViewModel() {
+ 
+     private val _text = MutableLiveData<String>().apply {
+-        value = "This is dashboard Fragment"
++        value = "This is dashboard sFragment"
+     }
+     val text: LiveData<String> = _text
+ }
+\ No newline at end of file

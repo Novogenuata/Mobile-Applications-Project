@@ -3,4 +3,10 @@
     <string name="title_home">Overview</string>
     <string name="title_dashboard">Analytics</string>
     <string name="title_notifications">Add Entry</string>
+    <string name="expenses_format">$%1$.2f</string>
+    <string name="expenses_error">Error fetching expenses</string>
+    <string name="income_format">$%1$.2f</string>
+    <string name="income_error">Error fetching income</string>
+    <string name="total_format">$%1$.2f</string>
+    <string name="total_error">Error fetching total</string>
 </resources>

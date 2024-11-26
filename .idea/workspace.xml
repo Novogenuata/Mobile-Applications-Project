@@ -10,6 +10,11 @@
           <theme>@style/Theme.ExpenseTracker</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/card_transaction.xml">
+        <config>
+          <theme>@style/Theme.ExpenseTracker</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard.xml">
         <config>
           <theme>@style/Theme.ExpenseTracker</theme>
@@ -21,6 +26,16 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications.xml">
+        <config>
+          <theme>@style/Theme.ExpenseTracker</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_transaction.xml">
+        <config>
+          <theme>@style/Theme.ExpenseTracker</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/transaction_card.xml">
         <config>
           <theme>@style/Theme.ExpenseTracker</theme>
         </config>
@@ -41,7 +56,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5ff5867-a4e2-467f-85ff-fb173dcb6e9a" name="Changes" comment="removed pi chart, added bar chart for easier functionality. Implemented the logic aswell.">
+    <list default="true" id="f5ff5867-a4e2-467f-85ff-fb173dcb6e9a" name="Changes" comment="implemented expense calculations">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/transaction_card.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -51,6 +67,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/expensetracker/data/dao/TransactionDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/expensetracker/data/dao/TransactionDao.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/expensetracker/ui/home/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/expensetracker/ui/home/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_transaction.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
@@ -62,7 +79,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\11hap\.android\avd\Pixel_API_35.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=RFCWB0PQP2A)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -111,6 +128,7 @@
       <list>
         <option value="resourceFile" />
         <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -328,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732592766071</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="implemented expense calculations">
+      <option name="closed" value="true" />
+      <created>1732594477080</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732594477080</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -339,6 +365,7 @@
     <MESSAGE value="Added pi chart" />
     <MESSAGE value="Added the overview page" />
     <MESSAGE value="removed pi chart, added bar chart for easier functionality. Implemented the logic aswell." />
-    <option name="LAST_COMMIT_MESSAGE" value="removed pi chart, added bar chart for easier functionality. Implemented the logic aswell." />
+    <MESSAGE value="implemented expense calculations" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented expense calculations" />
   </component>
 </project>

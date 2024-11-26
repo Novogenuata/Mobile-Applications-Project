@@ -3,6 +3,7 @@ package com.example.expensetracker.data.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Delete
 import com.example.expensetracker.data.TransactionWithCategory
 import com.example.expensetracker.data.entity.Transaction
 
@@ -23,4 +24,10 @@ interface TransactionDao {
 
     @Query("SELECT SUM(amount) FROM transactions WHERE entryType = 'Expense'")
     suspend fun getTotalExpenses(): Float
+
+    @Query("SELECT * FROM transactions")
+    suspend fun getAllTransactions(): List<Transaction>
+
+    @Delete
+    suspend fun delete(transaction: Transaction)
 }

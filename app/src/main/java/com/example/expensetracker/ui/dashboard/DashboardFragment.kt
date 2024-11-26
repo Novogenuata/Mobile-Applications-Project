@@ -29,7 +29,6 @@ import com.example.expensetracker.ui.SharedViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
-import java.util.Calendar
 
 class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
@@ -55,16 +54,13 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             fetchTransactionData(date)
         })
 
-        // Fetch and display data for the current date on initial load
-        val currentDate = getCurrentDate()
-        fetchTransactionData(currentDate)
+        // Display message to select a date initially
+        binding.barChart.setNoDataText("Please select a date to view your analytics.")
+        binding.barChart.invalidate()
 
         // Setup CalendarView logic
         binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val selectedDate = "$dayOfMonth/${month + 1}/$year"
-            Toast.makeText(context, "Selected Date: $selectedDate", Toast.LENGTH_SHORT).show()
-
-            // Fetch data for the selected date and update Bar Chart
             fetchTransactionData(selectedDate)
         }
 
@@ -79,16 +75,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         return root
     }
 
-    // Method to get the current date in the desired format
-    private fun getCurrentDate(): String {
-        val calendar = Calendar.getInstance()
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        return dateFormat.format(calendar.time)
-    }
-
     // Setup Bar Chart configurations
     private fun setupBarChart(barChart: BarChart) {
-        // General Bar Chart settings
         barChart.description.isEnabled = false
         barChart.setFitBars(true)
         barChart.setDrawGridBackground(false)
@@ -96,7 +84,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         barChart.setDrawValueAboveBar(true)
         barChart.setPinchZoom(false)
         barChart.setDrawGridBackground(false)
-
         barChart.animateY(1400, Easing.EaseInOutQuad)
 
         // X-Axis settings
@@ -112,13 +99,13 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         leftAxis.setLabelCount(5, false)
         leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART)
         leftAxis.spaceTop = 15f
-        leftAxis.axisMinimum = 0f // this replaces setStartAtZero(true)
+        leftAxis.axisMinimum = 0f
 
         val rightAxis: YAxis = barChart.axisRight
         rightAxis.setDrawGridLines(false)
         rightAxis.setLabelCount(5, false)
         rightAxis.spaceTop = 15f
-        rightAxis.axisMinimum = 0f // this replaces setStartAtZero(true)
+        rightAxis.axisMinimum = 0f
 
         barChart.legend.isEnabled = false
 
@@ -126,7 +113,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         barChart.clear()
     }
 
-    // Method to fetch transaction data based on the selected date
     private fun fetchTransactionData(selectedDate: String) {
         lifecycleScope.launch {
             try {
@@ -142,17 +128,12 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 val transactions = appDatabase.transactionDao().getTransactionsByDate(formattedDateString)
                 Log.d("DashboardFragment", "Fetched Transactions: $transactions")
 
-                val income = transactions.filter { it.entryType == "Income" }.sumOf { it.amount }.toFloat() // Cast to Float
-                val expense = transactions.filter { it.entryType == "Expense" }.sumOf { it.amount }.toFloat() // Cast to Float
+                val income = transactions.filter { it.entryType == "Income" }.sumOf { it.amount }.toFloat()
+                val expense = transactions.filter { it.entryType == "Expense" }.sumOf { it.amount }.toFloat()
                 val total = income - expense
 
                 Log.d("DashboardFragment", "Income: $income, Expense: $expense, Total: $total")
 
-                if (transactions.isEmpty()) {
-                    Toast.makeText(context, "No transactions found for this date", Toast.LENGTH_SHORT).show()
-                }
-
-                // Update the bar chart
                 updateBarChartData(income, expense, total)
 
             } catch (e: Exception) {
@@ -162,12 +143,10 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         }
     }
 
-    // Method to update the Bar Chart data dynamically
     private fun updateBarChartData(income: Float, expense: Float, total: Float) {
         val entries = ArrayList<BarEntry>()
         val labels = ArrayList<String>()
 
-        // Ensure all values (income, expense, total) are displayed
         entries.add(BarEntry(0f, income))
         labels.add("Income")
 
@@ -177,10 +156,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         entries.add(BarEntry(2f, total))
         labels.add("Total")
 
-        // Log the entries being added
         Log.d("DashboardFragment", "Bar Entries: $entries")
 
-        // If no valid data, clear the chart and show a message
         if (entries.isEmpty()) {
             binding.barChart.clear()
             binding.barChart.setNoDataText("No data available")
@@ -188,7 +165,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             return
         }
 
-        // Create a data set for the bar chart
         val dataSet = BarDataSet(entries, "Financial Summary")
         val colors = listOf(
             ContextCompat.getColor(requireContext(), R.color.mint),
@@ -197,29 +173,24 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         )
         dataSet.colors = colors
 
-        // Custom ValueFormatter to add $ sign
         dataSet.valueFormatter = object : ValueFormatter() {
             override fun getFormattedValue(value: Float): String {
                 return "$${String.format("%.2f", value)}"
             }
         }
 
-        // Create BarData and set it on the BarChart
         val data = BarData(dataSet)
         data.setValueTextSize(12f)
         data.setValueTextColor(Color.WHITE)
         data.setValueTypeface(Typeface.DEFAULT_BOLD)
 
-        // Assign labels to the X-Axis
         binding.barChart.xAxis.valueFormatter = IndexAxisValueFormatter(labels)
 
-        // Log the final BarData
         Log.d("DashboardFragment", "BarData: $data")
 
-        // Set the data and refresh the chart
         binding.barChart.data = data
-        binding.barChart.notifyDataSetChanged()  // Notify changes
-        binding.barChart.invalidate()  // Refresh the chart
+        binding.barChart.notifyDataSetChanged()
+        binding.barChart.invalidate()
     }
 
     override fun onDestroyView() {

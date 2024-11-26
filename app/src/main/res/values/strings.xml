@@ -9,4 +9,5 @@
     <string name="income_error">Error fetching income</string>
     <string name="total_format">$%1$.2f</string>
     <string name="total_error">Error fetching total</string>
+    <string name="amount_format">$%1$.2f</string>
 </resources>

@@ -1,17 +1,20 @@
 package com.example.expensetracker.ui.notifications
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.expensetracker.R
 import com.example.expensetracker.data.database.AppDatabase
 import com.example.expensetracker.data.entity.Transaction
 import com.example.expensetracker.data.entity.Category
 import com.example.expensetracker.databinding.FragmentNotificationsBinding
+import com.example.expensetracker.ui.SharedViewModel
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -24,6 +27,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
     private var entryType = "Expense" // Default entry type
 
     private lateinit var appDatabase: AppDatabase
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,6 +54,10 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
             val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                 val formattedDate = String.format("%02d/%02d/%04d", month + 1, dayOfMonth, year)
                 datePicker.setText(formattedDate)
+
+                // Save the selected date to SharedPreferences
+                val sharedPreferences = requireContext().getSharedPreferences("ExpenseTracker", Context.MODE_PRIVATE)
+                sharedPreferences.edit().putString("selectedDate", formattedDate).apply()
             }
 
             DatePickerDialog(
@@ -95,6 +103,9 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
                         // Insert the transaction into the database using a coroutine
                         appDatabase.transactionDao().insert(transaction)
                         Toast.makeText(requireContext(), "Transaction Added", Toast.LENGTH_SHORT).show()
+
+                        // Notify the ViewModel that a new transaction has been added
+                        sharedViewModel.notifyTransactionAdded(selectedDate)
                     }
 
                     // Clear the input fields after submission

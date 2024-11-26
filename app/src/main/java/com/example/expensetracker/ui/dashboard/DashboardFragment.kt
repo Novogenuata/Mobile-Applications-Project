@@ -48,7 +48,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         activity?.let { context ->
             appDatabase = AppDatabase.getDatabase(context)
         }
-
+//
         // Observe the shared ViewModel
         sharedViewModel.transactionAdded.observe(viewLifecycleOwner, Observer { date ->
             fetchTransactionData(date)

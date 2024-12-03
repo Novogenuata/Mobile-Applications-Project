@@ -30,4 +30,6 @@ interface TransactionDao {
 
     @Delete
     suspend fun delete(transaction: Transaction)
+    @Query("SELECT * FROM transactions WHERE strftime('%m/%Y', date) = :month")
+    suspend fun getTransactionsByMonth(month: String): List<Transaction>
 }

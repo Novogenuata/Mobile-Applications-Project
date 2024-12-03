@@ -16,6 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -80,7 +81,7 @@ dependencies {
 
     // Testing Dependencies
     testImplementation("junit:junit:4.13.2") // JUnit for Unit Testing
-    testImplementation("androidx.room:room-testing:2.6.1") // Room testing utilities
+
     testImplementation("org.mockito:mockito-core:4.6.1") // Mockito for mocking
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0") // Kotlin extensions for Mockito
 
@@ -90,4 +91,19 @@ dependencies {
 
     // Debugging
     debugImplementation("androidx.compose.ui:ui-tooling:1.4.1")
+    // Kotlin Coroutines Test library
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+// AndroidX Room Testing
+    testImplementation("androidx.room:room-testing:2.5.2")
+
+// JUnit
+    testImplementation("junit:junit:4.13.2")
+
+// AndroidX Core Testing
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation(
+        "org.robolectric:robolectric:4.9")
+    testImplementation("org.mockito:mockito-core:5.5.0")
+
 }

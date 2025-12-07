@@ -42,17 +42,11 @@ Sigourney Wamback
 
 
 							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
+# Final Outcome 
+<img width="659" height="859" alt="image" src="https://github.com/user-attachments/assets/549add37-30b9-43c6-8a77-8cccada6c56e" />
+<img width="557" height="712" alt="image" src="https://github.com/user-attachments/assets/76128056-19db-4037-8a6f-695167c97f44" />
+<img width="582" height="723" alt="image" src="https://github.com/user-attachments/assets/36f43c0e-c0a7-495c-befe-0dea93a4f45f" />
+
 							
 
 
